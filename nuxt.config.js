@@ -34,7 +34,11 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    // https://content.nuxtjs.org/
+    '@nuxt/content',
+    // https://composition-api.nuxtjs.org/
+    '@nuxtjs/composition-api/module'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -43,5 +47,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  generate: {
+    // https://composition-api.nuxtjs.org/getting-started/setup
+    interval: 2000
   }
 }
