@@ -1,4 +1,5 @@
 {
+    "textlint.targetPath": "content/**/*.md",
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },

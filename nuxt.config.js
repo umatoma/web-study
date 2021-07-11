@@ -4,14 +4,14 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'web-study',
+    title: '作って学ぶWebアプリ開発',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '手を動かしながら楽しくWebアプリ開発に必要なスキルを学ぼう！' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -52,5 +52,13 @@ export default {
   generate: {
     // https://composition-api.nuxtjs.org/getting-started/setup
     interval: 2000
+  },
+
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-lucario.css'
+      }
+    }
   }
 }
