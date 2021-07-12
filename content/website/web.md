@@ -1,6 +1,7 @@
 ---
 title: Webサイトとは
 description: Webサイトの仕組みや基礎知識を学ぼう！
+next: website/html
 ---
 
 ## Webサイトの仕組み

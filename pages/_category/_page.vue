@@ -1,27 +1,51 @@
 <template>
-  <div class="flex flex-row">
-    <div class="flex-none w-64 order-last">
-      <div class="fixed w-64 h-screen border-l border-gray-200">
+  <div>
+    <div class="flex flex-row">
+      <div class="flex-none w-64 order-last">
+        <div class="fixed w-64 h-screen border-l border-gray-200">
+          <div class="p-4">
+            <h5>CONTENTS</h5>
+          </div>
+          <div v-for="content of contents" :key="content.id">
+            <a :href="`#${content.id}`" class="block py-2 px-4 hover:bg-gray-200">
+              <span class="text-sm">{{ content.text }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <article class="flex-grow">
         <div class="p-4">
-          <h5>CONTENTS</h5>
+          <h1 class="text-3xl font-bold">
+            {{ doc.title }}
+          </h1>
         </div>
-        <div v-for="content of contents" :key="content.id">
-          <a :href="`#${content.id}`" class="block py-2 px-4 hover:bg-gray-200">
-            <span class="text-sm">{{ content.text }}</span>
-          </a>
+        <div class="p-4">
+          <nuxt-content :document="doc" />
         </div>
-      </div>
+        <div v-if="prev || next" class="flex flex-row justify-between p-4">
+          <div class="w-1/3">
+            <a v-if="prev" :href="prev.path" class="block w-full border border-gray-200 hover:bg-gray-200">
+              <div class="flex flex-row items-center">
+                <div class="flex-none p-2">
+                  <img class="w-8 h-8" src="https://img.icons8.com/ios/50/000000/left--v1.png">
+                </div>
+                <p class="flex-grow p-2 text-center">{{ prev.title }}</p>
+              </div>
+            </a>
+          </div>
+          <div class="w-1/3">
+            <a v-if="next" :href="next.path" class="block w-full border border-gray-200 hover:bg-gray-200">
+              <div class="flex flex-row items-center">
+                <p class="flex-grow p-2 text-center">{{ next.title }}</p>
+                <div class="flex-none p-2">
+                  <img class="w-8 h-8" src="https://img.icons8.com/ios/50/000000/right--v1.png">
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </article>
     </div>
-    <article class="flex-grow">
-      <div class="p-4">
-        <h1 class="text-3xl font-bold">
-          {{ doc.title }}
-        </h1>
-      </div>
-      <div class="p-4">
-        <nuxt-content :document="doc" />
-      </div>
-    </article>
   </div>
 </template>
 
@@ -38,12 +62,20 @@ export default defineComponent({
     const { category, page } = route.value.params
 
     const doc = ref<IContentDocument>({} as IContentDocument)
+    const prev = ref<IContentDocument | undefined>()
+    const next = ref<IContentDocument | undefined>()
     useMeta(() => ({ title: doc.value?.title }))
     useFetch(async () => {
-      doc.value = (await $content(category, page).fetch()) as IContentDocument
+      doc.value = (await $content(`${category}/${page}`).fetch()) as IContentDocument
+      if (doc.value.next) {
+        next.value = (await $content(doc.value.next).without(['body']).fetch()) as IContentDocument
+      }
+      if (doc.value.prev) {
+        prev.value = (await $content(doc.value.prev).without(['body']).fetch()) as IContentDocument
+      }
     })
 
-    return { doc }
+    return { doc, next, prev }
   },
   head: {},
   computed: {
@@ -101,6 +133,8 @@ export default defineComponent({
 
     --tw-border-opacity: 1;
     border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+
+    width: 100%;
   }
   .nuxt-content .nuxt-content-highlight {
     padding-bottom: 1rem;
