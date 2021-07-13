@@ -2,6 +2,7 @@
 title: HTMLとは
 description: HTMLの基礎知識を学ぼう！
 prev: /website/web
+next: /website/css
 ---
 
 ## HTML
@@ -92,7 +93,16 @@ Google検索などで表示されている各Webサイトのタイトルは、�
 
 それでは実際に、以下のようなWebサイトを作りながら、様々なタグの使い方を学んでいきます。
 
+![](/images/website/html-create-website.png)
+
 ### レイアウト
+
+多くのWebサイトは、大きく「ヘッダー」・「メインコンテンツ」・「フッター」でレイアウトが構成されています。
+それぞれ、`<header>`・`<main>`・`<footer>`タグを使うことで表現できます。
+
+![](/images/website/html-create-layout.png)
+
+早速、HTMLの基本構造に、ヘッダー・メインコンテンツ・フッターを追加してみます。
 
 ```html
 <!DOCTYPE html>
@@ -103,23 +113,293 @@ Google検索などで表示されている各Webサイトのタイトルは、�
     <title>タイトル</title>
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header>ヘッダー</header>
+    <main>メインコンテンツ</main>
+    <footer>フッター</footer>
 </body>
 </html>
 ```
 
 ### 見出し
 
+「見出し」を表現するタグは`<h1>`から`<h6>`の６種類あり、ページタイトルや記事タイトルに使います。
+数値が小さくなるに連れ、より詳細な見出しを意味します。
+
+HTMLに見出しを追加してみます。
+ページタイトルとして`<h1>`を使い、各セクションのタイトルとして`<h2>`を使います。
+
+![](/images/website/html-create-heading.png)
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="charset" content="UTF-8" />
+    <meta name="description" content="Webサイトの説明" />
+    <title>タイトル</title>
+</head>
+<body>
+    <header>
+        <h1>料理ブログ</h1>
+    </header>
+    <main>
+        <h2>基本のハンバーグレシピ</h2>
+    </main>
+    <footer>
+        <h2>お問い合わせ</h2>
+    </footer>
+</body>
+</html>
+```
+
 ### 文章
+
+文章の「段落」を表現するタグは`<p>`を使います。
+また、文章の「改行」は`<br>`で表現できます。
+
+メインコンテンツに段落としてレシピの概要を追加してみます。
+
+```html
+<main>
+    <h2>基本のハンバーグレシピ</h2>
+    <p>
+        ご飯がすすむ定番のハンバーグレシピです。<br>
+        ぜひ作ってみてください。
+    </p>
+</main>
+```
 
 ### 画像
 
-### リンク
+「画像」を表現するタグは`<img>`を使います。
+このタグに画像のURLを`<img src="https://placehold.jp/300x200.png">`のように指定することで、任意の画像を表示できます。
 
-### リスト
+メインコンテンツにレシピの画像を追加してみます。（ここではダミー画像を指定しています）
+
+```html
+<main>
+    <h2>基本のハンバーグレシピ</h2>
+    <p>
+        ご飯がすすむ定番のハンバーグレシピです。<br>
+        ぜひ作ってみてください。
+    </p>
+    <img src="https://placehold.jp/300x200.png">
+</main>
+```
 
 ### 表
 
-### フォーム
+「表」を表現するタグは`<table>`を使います。
+表は、ヘッダー`<thead>`と、本文`<tbody>`で構成されます。
+
+そして、行は`<tr>`を使い、行の中の列は`<th>`または`<td>`を使います。
+`<tr>`はヘッダー内の見出しに使い、`<td>`は本文内のデータに使います。
+
+![](/images/website/html-create-table.png)
+
+メインコンテンツに材料・レシピの表を追加してみます。
+
+```html
+<main>
+    <h2>基本のハンバーグレシピ</h2>
+    <p>
+        ご飯がすすむ定番のハンバーグレシピです。<br>
+        ぜひ作ってみてください。
+    </p>
+    <img src="https://placehold.jp/300x200.png">
+    <table>
+        <thead>
+            <tr>
+                <th>材料</th>
+                <th>レシピ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>材料一覧</td>
+            <td>レシピ一覧</td>
+        </tbody>
+    </table>
+</main>
+```
+
+### リスト
+
+「リスト」を表現するタグは`<ul>`と`<ol>`の２種類あります。
+`<ul>`は順序のないリストに使い、`<ol>`は順序のあるリストに使います。
+そして、リスト内の各項目は`<li>`を使います。
+
+![](/images/website/html-create-list.png)
+
+メインコンテンツに材料・レシピのリストを追加してみます。
+
+```html
+<main>
+    <h2>基本のハンバーグレシピ</h2>
+    <p>
+        ご飯がすすむ定番のハンバーグレシピです。<br>
+        ぜひ作ってみてください。
+    </p>
+    <img src="https://placehold.jp/300x200.png">
+    <table>
+        <thead>
+            <tr>
+                <th>材料</th>
+                <th>レシピ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>
+                <ul>
+                    <li>ひき肉</li>
+                    <li>パン粉</li>
+                    <li>牛乳</li>
+                    <li>塩</li>
+                    <li>こしょう</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>こねる</li>
+                    <li>形を作る</li>
+                    <li>焼く</li>
+                    <li>盛り付ける</li>
+                </ul>
+            </td>
+        </tbody>
+    </table>
+</main>
+```
+
+### フォーム入力
+
+「フォーム」を表現するタグは、`<form>`を使います。
+
+フォーム内の「フォーム入力」を表現するタグは`<input>`を使います。
+`<input type="text">`のように、入力形式を指定することで、メールアドレス入力・テキスト入力・送信ボタンなど様々な形式を表現できます。
+
+- メールアドレス入力：`<input type="email">`
+- テキスト入力：`<input type="text">`
+- 送信ボタン：`<input type="submit">`
+
+フッターにお問い合わせフォームを追加してみます。
+
+```html
+<footer>
+    <form>
+        <h6>メールアドレス</h6>
+        <input type="email">
+
+        <h6>内容</h6>
+        <input type="text">
+
+        <h6>送信</h6>
+        <input type="submit">
+    </form>
+</footer>
+```
+
+### リンク
+
+「リンク」を表現するタグは`<a>`を使います。
+リンク先のURLは`<a href="https://twitter.com/USER_NAME">Twitter</a>`のように指定できます。
+
+フッターにSNSアカウントへのリンクを追加してみます。
+
+```html
+<footer>
+    <form>
+        <h6>メールアドレス</h6>
+        <input type="email">
+
+        <h6>内容</h6>
+        <input type="text">
+
+        <h6>送信</h6>
+        <input type="submit">
+    </form>
+
+    <p>
+        <a href="https://twitter.com/USER_NAME">Twitter</a>
+    </p>
+</footer>
+```
+
+### Netlifyで公開する
+
+WebサイトのHTMLが完成しました。
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="charset" content="UTF-8" />
+    <meta name="description" content="Webサイトの説明" />
+    <title>タイトル</title>
+</head>
+<body>
+    <header>
+        <h1>料理ブログ</h1>
+    </header>
+    <main>
+        <h2>基本のハンバーグレシピ</h2>
+        <p>
+            ご飯がすすむ定番のハンバーグレシピです。<br>
+            ぜひ作ってみてください。
+        </p>
+        <img src="https://placehold.jp/300x200.png">
+        <table>
+            <thead>
+                <tr>
+                    <th>材料</th>
+                    <th>レシピ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>
+                    <ul>
+                        <li>ひき肉</li>
+                        <li>パン粉</li>
+                        <li>牛乳</li>
+                        <li>塩</li>
+                        <li>こしょう</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>こねる</li>
+                        <li>形を作る</li>
+                        <li>焼く</li>
+                        <li>盛り付ける</li>
+                    </ul>
+                </td>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <form>
+            <h6>メールアドレス</h6>
+            <input type="email">
+    
+            <h6>内容</h6>
+            <input type="text">
+    
+            <h6>送信</h6>
+            <input type="submit">
+        </form>
+
+        <p>
+            <a src="https://twitter.com/USER_NAME">Twitter</a>
+        </p>
+    </footer>
+</body>
+</html>
+```
+
+Netlifyを使い、Webサイトとして公開してみます。
+
+「[Webサイトとは](/website/web)」で紹介した方法と同じく、`public`フォルダ内に、`index.html`を作成します。
+そして、Netlifyの管理画面からフォルダをアップロードします。
+
+![](/images/website/html-create-website.png)
+
+これで、Webサイトを公開できました。

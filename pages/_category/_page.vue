@@ -127,15 +127,6 @@ export default defineComponent({
   .nuxt-content a {
     text-decoration: underline;
   }
-  .nuxt-content img {
-    border-width: 1px;
-    border-radius: 4px;
-
-    --tw-border-opacity: 1;
-    border-color: rgba(229, 231, 235, var(--tw-border-opacity));
-
-    width: 100%;
-  }
   .nuxt-content .nuxt-content-highlight {
     padding-bottom: 1rem;
     position: relative;

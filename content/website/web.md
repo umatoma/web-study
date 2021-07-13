@@ -147,12 +147,12 @@ Webサーバーを構築したり、レンタルサーバーを利用する場�
 まずは、アカウントを登録します。
 画面の指示に従って登録を進めてください。
 
-![](/images/web/netlify-01.png)
+![](/images/website/netlify-01.png)
 
 登録が完了すると、管理画面が表示されます。
 HTMLファイルを含んだフォルダをドラッグ＆ドロップでアップロードできます。
 
-![](/images/web/netlify-02.png)
+![](/images/website/netlify-02.png)
 
 アップロード用に`public`という名前でフォルダを作成し、その中に`index.html`という名前のファイルを作ります。
 `index.html`の中身は先程紹介したエディタなどで以下のHTMLを記述します。
@@ -179,15 +179,15 @@ HTMLファイルを含んだフォルダをドラッグ＆ドロップでアッ�
 記述できたら、`public`フォルダを管理画面へとドラッグ＆ドロップでアップロードします。
 成功すると以下のような画面に切り替わります。
 
-![](/images/web/netlify-03.png)
+![](/images/website/netlify-03.png)
 
 「https://***.netlify.app」と表示されているURLが作成したWebサイトのURLです。
 リンクを開くとアップロードしたHTMLがWebサイトとして公開できています。
 
-![](/images/web/netlify-04.png)
+![](/images/website/netlify-04.png)
 
 これで、自身のWebサイトを簡単に公開できました。
 
 また、再度アップロードする場合は「Deploys」を選択し、同じくドラッグ＆ドロップでアップロードできます。
 
-![](/images/web/netlify-05.png)
+![](/images/website/netlify-05.png)
