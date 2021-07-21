@@ -388,7 +388,7 @@ WebサイトのHTMLが完成しました。
         </form>
 
         <p>
-            <a src="https://twitter.com/USER_NAME">Twitter</a>
+            <a href="https://twitter.com/USER_NAME">Twitter</a>
         </p>
     </footer>
 </body>
