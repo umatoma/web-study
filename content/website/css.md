@@ -92,6 +92,8 @@ CSSは`<style>`タグの中で記述できます。
 
 文字のサイズ・色・種類・太さ・位置を指定する方法を確認していきます。
 
+![](/images/website/css-font.png)
+
 #### サイズ
 
 文字のサイズを指定するには、`font-size`プロパティを使います。
@@ -174,6 +176,8 @@ h2 {
 
 背景の色・画像を指定する方法を確認していきます。
 
+![](/images/website/css-background.png)
+
 #### 色
 
 要素の背景色を指定するには、`background-color`プロパティを使います。
@@ -222,6 +226,8 @@ body {
 
 要素の横幅・縦幅を指定する方法を確認していきます。
 
+![](/images/website/css-size.png)
+
 #### 横幅
 
 要素の横幅を指定するには、`width`プロパティを使います。
@@ -262,6 +268,8 @@ img {
 ### 余白
 
 要素の余白を指定する方法を確認していきます。
+
+![](/images/website/css-space.png)
 
 #### 内側の余白
 
@@ -307,6 +315,8 @@ form {
 ### 枠線
 
 要素の枠線を指定する方法を確認していきます。
+
+![](/images/website/css-border.png)
 
 #### 種類
 
@@ -452,7 +462,6 @@ CSSでWebサイトを装飾しました。
     </footer>
 </body>
 </html>
-
 ```
 
 Netlifyを使い、Webサイトとして公開してみます。
@@ -467,4 +476,122 @@ Netlifyを使い、Webサイトとして公開してみます。
 
 ## クラスとID
 
-TBD
+ここまで紹介した方法では、セレクターでタグを指定しています。なので、「同じタグだけど要素に応じで異なる装飾をする」、といったケースには対応できません。そこで、タグよりも詳細に装飾する要素を指定できる仕組みが、「クラスとID」です。
+
+![](/images/website/css-class-id.png)
+
+### クラスとIDを設定する
+
+クラスとIDは、HTMLタグに記述できます。例えば、`title`というクラスをタグに設定する場合は`<h1 class="title"></h1>`とし、`main-title`というIDをタグに設定する場合は`<h1 id="main-title"></h1>`とします。
+
+この時、HTMLの中で「同じIDを複数使うことはできない」ので注意が必要です。例えば、`<h1 id="main-title"></h1>`と`<h2 id="main-title"></h2>`を同時に設定できません。
+
+### クラスとIDを指定して装飾する
+
+そして、CSSのセレクターでクラス・IDを使うことができます。例えば、`<h1 class="title"></h1>`のようなクラスが設定されている要素に装飾する場合は`.title {  }`とします。また、`<h1 id="main-title"></h1>`のようなIDが設定されている要素の装飾する場合は`#main-title {  }`とします。
+
+このように、セレクターでクラスを指定する場合はクラス名の前に「.」を付け、IDを指定する場合はID名の前に「#」を付けます。
+
+実際に先程作成したWebサイトに、クラスとIDを使った指定を加えてみます。
+フォーム内の各タイトルに対して`input-title`のクラスを設定し、Twitterのリンクに対して`twitter`のIDを設定します。そして、CSSのセレクターでクラス・IDを指定し装飾します。
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="charset" content="UTF-8" />
+    <meta name="description" content="Webサイトの説明" />
+    <title>タイトル</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffefd5;
+            padding: 32px;
+        }
+        h1 {
+            font-size: 56px;
+            font-weight: normal;
+        }
+        h2 {
+            font-size: 32px;
+            font-weight: normal;
+        }
+        img {
+            width: 600px;
+            height: 400px;
+        }
+        form {
+            padding: 16px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: gray;
+        }
+        .input-title {
+            font-size: 24px;
+            font-weight: normal;
+        }
+        #twitter {
+            color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>料理ブログ</h1>
+    </header>
+    <main>
+        <h2>基本のハンバーグレシピ</h2>
+        <p>
+            ご飯がすすむ定番のハンバーグレシピです。<br>
+            ぜひ作ってみてください。
+        </p>
+        <img src="https://placehold.jp/300x200.png">
+        <table>
+            <thead>
+                <tr>
+                    <th>材料</th>
+                    <th>レシピ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>
+                    <ul>
+                        <li>ひき肉</li>
+                        <li>パン粉</li>
+                        <li>牛乳</li>
+                        <li>塩</li>
+                        <li>こしょう</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>こねる</li>
+                        <li>形を作る</li>
+                        <li>焼く</li>
+                        <li>盛り付ける</li>
+                    </ul>
+                </td>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <form>
+            <h6 class="input-title">メールアドレス</h6>
+            <input type="email">
+    
+            <h6 class="input-title">内容</h6>
+            <input type="text">
+    
+            <h6 class="input-title">送信</h6>
+            <input type="submit">
+        </form>
+
+        <p>
+            <a id="twitter" href="https://twitter.com/USER_NAME">Twitter</a>
+        </p>
+    </footer>
+</body>
+</html>
+```
+
+![](/images/website/css-class-id-html.png)
