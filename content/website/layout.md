@@ -173,11 +173,118 @@ Flexアイテムが折返した時に交差軸に対する配置方法を指定�
 ![](/images/website/flex-align-content.png)
 
 
-## ２カラム型のレイアウト
+## ページレイアウト
 
-TBD
+Webサイトのページとして使われるレイアウトは様々な種類があります。
+ここでは、２カラム型・タイル型のレイアウトを作成してみます。
+
+![](/images/website/flex-layout2.png)
 
 
-## タイル型のレイアウト
+### ２カラム型のレイアウト
 
-TBD
+サイドナビとメインコンテンツが左右に並ぶ、２カラム型のレイアウトを作成します。
+サイドナビとメインコンテンツそれぞれをFlexアイテムとし、横方向に並べます。
+
+Flexコンテナとして扱うため`display: flex;`を設定します。
+そして、Flexアイテムを横方向に並べる場合は`flex-direction: row;`を設定します。
+
+例として次のようなHTML・CSSで２カラム型のレイアウトを作成できます。
+ここではサイドナビの横幅を固定しています。
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="charset" content="UTF-8" />
+    <title>２カラム型</title>
+    <style type="text/css">
+        p {
+            height: 900px;
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+        }
+        .flex-item-nav {
+            width: 256px;
+            margin-right: 8px;
+            background-color: skyblue;
+        }
+        .flex-item-main {
+            width: 100%;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item-nav">
+            <p>サイドナビ</p>
+        </div>
+        <div class="flex-item-main">
+            <p>メインコンテンツ</p>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+### タイル型のレイアウト
+
+要素を折返して並べる、タイル型のレイアウトを作成します。
+Flexアイテムを左右に並べ、折返しを有効にします。
+
+Flexアイテムを横方向に並べる場合は`flex-direction: row;`を設定します。
+そして、Flexアイテムの折返しを有効にする場合は`flex-wrap: wrap;`を設定します。
+
+例として次のようなHTML・CSSでタイル型のレイアウトを作成できます。
+ここではFlexアイテムのサイズを固定しています。
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="charset" content="UTF-8" />
+    <title>タイル型</title>
+    <style type="text/css">
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .flex-item {
+            width: 256px;
+            height: 256px;
+            margin: 8px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="https://placehold.jp/600x400.png">
+    </div>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p>１</p>
+        </div>
+        <div class="flex-item">
+            <p>２</p>
+        </div>
+        <div class="flex-item">
+            <p>３</p>
+        </div>
+        <div class="flex-item">
+            <p>４</p>
+        </div>
+        <div class="flex-item">
+            <p>５</p>
+        </div>
+        <div class="flex-item">
+            <p>６</p>
+        </div>
+    </div>
+</body>
+</html>
+```

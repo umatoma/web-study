@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="flex flex-row">
-      <div class="flex-none w-64 order-last">
-        <div class="fixed w-64 h-screen border-l border-gray-200">
+      <div class="flex-none w-48 order-last">
+        <div class="fixed w-48 h-screen border-l border-gray-200">
           <div class="p-4">
             <h5>CONTENTS</h5>
           </div>
@@ -99,7 +99,6 @@ export default defineComponent({
     font-weight: 700;
 
     border-left-width: 8px;
-    --tw-border-opacity: 1;
     border-color: rgba(16, 185, 129, var(--tw-border-opacity));
   }
   .nuxt-content h3 {
@@ -138,10 +137,17 @@ export default defineComponent({
     position: absolute;
     right: 0;
     top: 0;
-    --tw-text-opacity: 1;
     color: rgba(229, 231, 235, var(--tw-text-opacity));
     z-index: 10;
     margin-right: 1rem;
     margin-top: .75rem;
+  }
+  .nuxt-content table {
+    border-width: 1px;
+    border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+    margin-bottom: 1rem;
+  }
+  .nuxt-content table th, table td {
+    padding: 0.25rem 0.5rem;
   }
 </style>
