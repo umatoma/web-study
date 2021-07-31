@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="flex flex-row">
-      <div class="flex-none w-48 order-last">
-        <div class="fixed w-48 h-screen border-l border-gray-200">
+      <div class="flex-none w-64 order-last">
+        <div class="fixed w-64 h-screen border-l border-gray-200">
           <div class="p-4">
             <h5>CONTENTS</h5>
           </div>
@@ -60,19 +60,24 @@ export default defineComponent({
 
     const $content = context.$content
     const { category, page } = route.value.params
+    const fetchDoc = async () => {
+      return (await $content(`${category}/${page}`).fetch()) as IContentDocument
+    }
+    const fetchSurround = async (slug: string) => {
+      return (await $content(category).sortBy('slug').surround(slug).fetch()) as IContentDocument[]
+    }
 
     const doc = ref<IContentDocument>({} as IContentDocument)
     const prev = ref<IContentDocument | undefined>()
     const next = ref<IContentDocument | undefined>()
     useMeta(() => ({ title: doc.value?.title }))
     useFetch(async () => {
-      doc.value = (await $content(`${category}/${page}`).fetch()) as IContentDocument
-      if (doc.value.next) {
-        next.value = (await $content(doc.value.next).without(['body']).fetch()) as IContentDocument
-      }
-      if (doc.value.prev) {
-        prev.value = (await $content(doc.value.prev).without(['body']).fetch()) as IContentDocument
-      }
+      const _doc = await fetchDoc()
+      const [_prev, _next] = await fetchSurround(_doc.slug)
+
+      doc.value = _doc
+      prev.value = _prev
+      next.value = _next
     })
 
     return { doc, next, prev }

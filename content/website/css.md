@@ -1,8 +1,7 @@
 ---
 title: CSSとは
 description: CSSの基礎知識を学ぼう！
-prev: /website/html
-next: /website/layout
+slug: website-3
 ---
 
 ## CSS

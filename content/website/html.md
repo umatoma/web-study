@@ -1,8 +1,7 @@
 ---
 title: HTMLとは
 description: HTMLの基礎知識を学ぼう！
-prev: /website/web
-next: /website/css
+slug: website-2
 ---
 
 ## HTML

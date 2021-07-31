@@ -1,7 +1,7 @@
 ---
-title: レイアウト
+title: Flexboxを使ったレイアウト
 description: Flexboxを使ったレイアウトの基礎知識を学ぼう！
-prev: /website/css
+slug: Flexboxを使ったレイアウト
 ---
 
 ## レイアウト
