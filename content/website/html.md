@@ -301,6 +301,13 @@ HTMLに見出しを追加してみます。
 
 「リンク」を表現するタグは`<a>`を使います。
 リンク先のURLは`<a href="https://twitter.com/USER_NAME">Twitter</a>`のように指定できます。
+また、リンク先が同じWebサイト内である場合は、`/contact.html`・`./contact.html`のように簡略化して指定できます。
+
+`/contact.html`のような書き方を「絶対パス」と呼び、`./contact.html`のような書き方を「相対パス」と呼びます。
+絶対パスは常に同じURLを指しますが、相対パスは現在のURLに応じて変化します。
+
+例えば、現在のURLが`https://example.com/`である時、`./contact.html`は`https://example.com/contact.html`を指します。
+そして、現在のURLが`https://example.com/pages/hello.html`である時、`./contact.html`は`https://example.com/pages/contact.html`を指します。
 
 フッターにSNSアカウントへのリンクを追加してみます。
 

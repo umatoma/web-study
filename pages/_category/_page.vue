@@ -134,6 +134,7 @@ export default defineComponent({
   .nuxt-content .nuxt-content-highlight {
     padding-bottom: 1rem;
     position: relative;
+    font-size: 0.75em;
   }
   .nuxt-content .nuxt-content-highlight pre {
     border-radius: 4px;
