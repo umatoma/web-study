@@ -1,6 +1,6 @@
 <template>
-  <div>
-    HOME
+  <div class="p-4">
+    <h1>作って学ぶ、Webサイト・Webアプリ開発</h1>
   </div>
 </template>
 
