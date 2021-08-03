@@ -159,16 +159,69 @@ let two = three - one; // 2
 | `!==` | ２つの値が異なるか比較する。 | `'HELLO' !== 'WORLD'; // true` |
 | | | `3 !== 3; // false` |
 
-### 条件文
+### 条件分岐
 
-TBD
+”○○だったら、□□を行う”といった「条件分岐」は、`if(...)`を使うことで記述できます。
+例えば、変数に入っている文字列が"HELLO"である場合に、見出しを"HELLO WORLD"にする処理は次のようになります。
+
+```js
+let message = 'HELLO';
+if (message === 'HELLO') {
+    // ○○であった場合
+    document.querySelector('h1').textContent = 'HELLO WORLD';
+}
+```
+
+演算子の項目で説明したように、`message === 'HELLO'`は`true`または`false`になります。
+つまり、`if (true)`となれば`{}`の中にある処理を実行し、`if (false)`となれば処理を実行しないことになります。
+
+また、"○○でなかった場合"の条件を記述できます。
+先程の例に、変数に入っている文字列が”HELLO”でなかった場合、の処理を追加すると次のようになります。
+
+```js
+let message = 'HELLO';
+if (message === 'HELLO') {
+    // ○○であった場合
+    document.querySelector('h1').textContent = 'HELLO WORLD';
+} else {
+    // ○○でなかった場合
+    document.querySelector('h1').textContent = 'NOT HELLO WORLD';
+}
+```
+
+このように、`if (...) { } else { }`と記述することで、"○○であった場合"と"○○でなかった場合"の両方の条件で処理を行えます。
 
 ### 関数
 
-TBD
+「関数」と呼ばれる仕組みを使うことで、一連の処理を１つにまとめることができます。
+例えば、２つの数値を足し算する処理を、関数として１つにまとめると次のようになります。
 
-### イベント
+```js
+function multiply(num1, num2) {
+    let result = num1 + num2;
+    return result;
+}
 
-TBD
+let result1 = multiply(1, 2); // 3
+let result2 = multiply(0.5, 2.0); // 2.5
+```
+
+関数は、`function`に続いて、任意の名前・`()`・`{}`を記述して使います。
+
+`()`の中には`(num1, num2)`のように、「引数」と呼ばれる物を指定できます。
+引数を指定することで、関数に対して任意の値を渡せます。
+
+次に、`{}`の中には、まとめたい一連の処理を記述します。
+最後の行に`return`とあり、これを記述することで関数から値を返せます。
+つまり、`multiply(1, 2)`は結果として`3`という値になります。
 
 
+## 作りながら学ぶ
+
+HTMLやCSSに比べJavaScriptは難しく感じるでしょう。
+もちろんそれが普通で、初めてJavaScriptを使う方にとってはよく分からない部分がたくさん出てくるでしょう。
+
+学び方は様々ありますが、本サイトではJavaScriptの使い方を学ぶのではなく、Webサイトの作り方を学ぶことを目的としています。
+なので、実際に手を動かしながらJavaScriptを使ってWebサイトを作ることで、JavaScriptの使い方を身に着けていきます。
+
+それでは、次に進みましょう！

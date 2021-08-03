@@ -1,6 +1,6 @@
 ---
-title: Webサイトを作ってみる
-description: Webサイトを作るための基礎知識を学ぼう！
+title: Webサイトを作る
+description: HTMLとCSSを使ってWebサイトを作ってみよう！
 slug: website-6
 ---
 
