@@ -4,7 +4,7 @@ description: HTMLとCSSを使ってWebサイトを作ってみよう！
 slug: website-6
 ---
 
-## Webサイトを作ってみる
+## Webサイトを作る
 
 ここまで学んだ知識を使って自身のWebサイトを作ってみましょう。
 
