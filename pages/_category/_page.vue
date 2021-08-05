@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="flex flex-row">
-      <div class="flex-none w-64 order-last">
-        <div class="fixed w-64 h-screen border-l border-gray-200">
+    <div class="flex flex-col sm:flex-row">
+      <div class="hidden sm:block sm:flex-none sm:w-64 sm:order-last">
+        <div class="sm:fixed sm:w-64 sm:h-screen sm:border-l sm:border-gray-200">
           <div class="p-4">
-            <h5>CONTENTS</h5>
+            <h5>目次</h5>
           </div>
           <div v-for="content of contents" :key="content.id">
             <a :href="`#${content.id}`" class="block py-2 px-4 hover:bg-gray-200">
@@ -14,16 +14,16 @@
         </div>
       </div>
       <article class="flex-grow">
-        <div class="p-4">
-          <h1 class="text-3xl font-bold">
+        <div class="px-8 py-16 bg-green-500">
+          <h1 class="text-3xl text-white font-bold">
             {{ doc.title }}
           </h1>
         </div>
-        <div class="p-4">
+        <div class="px-4">
           <nuxt-content :document="doc" />
         </div>
-        <div v-if="prev || next" class="flex flex-row justify-between p-4">
-          <div class="w-1/3">
+        <div v-if="prev || next" class="flex flex-col sm:flex-row justify-between p-4">
+          <div class="mb-4 sm:w-1/3 sm:mb-0">
             <a v-if="prev" :href="prev.path" class="block w-full border border-gray-200 hover:bg-gray-200">
               <div class="flex flex-row items-center">
                 <div class="flex-none p-2">
@@ -33,7 +33,7 @@
               </div>
             </a>
           </div>
-          <div class="w-1/3">
+          <div class="sm:w-1/3">
             <a v-if="next" :href="next.path" class="block w-full border border-gray-200 hover:bg-gray-200">
               <div class="flex flex-row items-center">
                 <p class="flex-grow p-2 text-center">{{ next.title }}</p>
@@ -94,7 +94,7 @@ export default defineComponent({
 
 <style lang="css">
   .nuxt-content h2 {
-    margin-top: 4rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
     padding-left: 0.5rem;
 
