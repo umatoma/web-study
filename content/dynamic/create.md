@@ -197,10 +197,126 @@ slug: dynamic-3
 
 ## タブを切り替える
 
-TBD
+JavaScriptを使い、レシピ・お問い合わせの表示を切り替えられるようにします。
+
+まず、HTML内のレシピ・お問い合わせ部分を簡単に表示すると次のようになります。
+HTMLをWebブラウザで表示してみると、レシピの部分は表示され、お問い合わせの部分は表示されていないことが分かります。
+
+お問い合わせの部分には`inactive`クラスが指定され、CSSとして`display: none;`が指定されています。
+つまり、`display: none;`を指定すると要素を非表示にできます。
+
+```css
+.inactive {
+    display: none;
+}
+```
+
+```html
+<div class="right-item">
+    <div class="tab-header">
+        <p class="tab-menu">レシピ</p>
+        <p class="tab-menu">お問い合わせ</p>
+    </div>
+
+    <div class="tab">
+        <!-- レシピ -->
+    </div>
+
+    <div class="tab inactive">
+        <!-- お問い合わせ -->
+    </div>
+</div>
+```
+
+レシピ・お問い合わせの表示を切り替えるには、片方に`inactive`クラスを指定します。
+レシピボタンがクリックされたらお問い合わせタブに`inactive`クラスを指定し、お問い合わせボタンがクリックされたらレシピタブに`inactive`クラスを指定します。
+
+```js
+let tabMenus = document.querySelectorAll('.tab-menu');
+let tabMenu1 = tabMenus.item(0);
+let tabMenu2 = tabMenus.item(1);
+
+let tabs = document.querySelectorAll('.tab');
+let tab1 = tabs.item(0);
+let tab2 = tabs.item(1);
+
+tabMenu1.addEventListener('click', function() {
+    tab1.className = 'tab';
+    tab2.className = 'tab inactive';
+});
+tabMenu2.addEventListener('click', function() {
+    tab1.className = 'tab inactive';
+    tab2.className = 'tab';
+});
+```
+
+![](/images/website/js-create-tabs.png)
+
+これで、ボタンをクリックしタブ表示を切り替えられるようになりました。
 
 
 ## 入力エラーを表現する
 
-TBD
+次に、お問い合わせフォームの入力内容に応じて入力エラーがあることを表現できるようにしてみます。
 
+お問い合わせフォームでは、メールアドレス・内容を入力できるようになっています。
+ここで、それぞれ何も入力されていない場合はエラーとし、背景を赤くすることとします。
+
+また、送信ボタンがクリックされたら、”送信しました”と表示します。
+
+```js
+let email = '';
+let text = '';
+
+let inputs = document.querySelectorAll('input');
+let inputEmail = inputs.item(0);
+let inputText = inputs.item(1);
+let inputSubmit = inputs.item(2);
+
+inputEmail.addEventListener('input', function(e) {
+    email = e.target.value;
+
+    if (email === '') {
+        inputEmail.className = 'error';
+    } else {
+        inputEmail.className = '';
+    }
+});
+inputText.addEventListener('input', function(e) {
+    text = e.target.value;
+
+    if (email === '') {
+        inputText.className = 'error';
+    } else {
+        inputText.className = '';
+    }
+});
+inputSubmit.addEventListener('click', function() {
+    let p = document.createElement();
+    p.textContent = '送信しました';
+
+    let form = document.querySelector('form');
+    form.appendChild(p);
+});
+```
+
+![](/images/website/js-create-error.png)
+
+これで、入力内容に応じてエラーを表現できました。
+
+
+## Netlifyで公開する
+
+Netlifyを使い、Webサイトとして公開してみます。
+
+「[Webサイトとは](/website/web)」で紹介した方法と同じく、publicフォルダ内に、index.htmlを作成します。 
+そして、Netlifyの管理画面からフォルダをアップロードします。
+
+```
+public
+  ┗ index.html
+```
+
+![](/images/website/netlify-05.png)
+
+これで、Webサイトを公開できました。
