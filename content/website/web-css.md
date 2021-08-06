@@ -1,7 +1,7 @@
 ---
 title: CSSとは
 description: CSSの基礎知識を学ぼう！
-slug: website-3
+slug: website-03
 ---
 
 ## CSS

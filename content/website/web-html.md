@@ -1,7 +1,7 @@
 ---
 title: HTMLとは
 description: HTMLの基礎知識を学ぼう！
-slug: website-2
+slug: website-02
 ---
 
 ## HTML

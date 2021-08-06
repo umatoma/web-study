@@ -1,7 +1,7 @@
 ---
 title: Webサイトを作る
 description: HTMLとCSSを使ってWebサイトを作ってみよう！
-slug: website-6
+slug: website-06
 ---
 
 ## Webサイトを作る

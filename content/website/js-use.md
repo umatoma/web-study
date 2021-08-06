@@ -1,7 +1,7 @@
 ---
 title: HTMLを動かす
 description: JavaScriptを使ってHTMLを動かす方法を学ぼう！
-slug: dynamic-2
+slug: website-08
 ---
 
 ## HTMLの要素を指定する

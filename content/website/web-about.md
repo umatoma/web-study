@@ -1,7 +1,7 @@
 ---
 title: Webサイトとは
 description: Webサイトの仕組みや基礎知識を学ぼう！
-slug: website-1
+slug: website-01
 ---
 
 ## Webサイト入門

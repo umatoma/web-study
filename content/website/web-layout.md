@@ -1,7 +1,7 @@
 ---
 title: Flexboxを使ったレイアウト
 description: Flexboxを使ったレイアウトの基礎知識を学ぼう！
-slug: website-4
+slug: website-04
 ---
 
 ## レイアウト
