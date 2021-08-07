@@ -9,7 +9,7 @@ slug: website-10
 これまで、HTML・CSS・JavaScriptを使ってWebサイトを作るための基礎知識を学んできました。
 「Webサイト入門」の最後として、自分だけのドメインが設定されたWebサイトを公開しましょう。
 
-## Netlify
+## NetlifyでWebサイトを公開
 
 「Netlify」は世界中で使われている、Webサイトを公開するためのサービスです。
 簡単にWebサイトを公開でき、無料で使い始めることができます。
@@ -79,7 +79,7 @@ Netlifyを使い公開したWebサイトのドメインは、`***.netlify.app`�
 どのサービスを利用しても問題ありません。
 ですが、Google Domainsを利用すると、Googleから提供されているその他サービスを使う際に設定が簡単になるメリットがあります。
 
-### Google Domains
+## Google Domainsでドメインを取得
 
 ここでは、Google Domainsを使ってドメインを取得していきます。
 
@@ -100,14 +100,70 @@ Netlifyを使い公開したWebサイトのドメインは、`***.netlify.app`�
 これで、独自ドメインが取得できました。
 
 
-### Netlifyで独自ドメインを使う
+## Netlifyで独自ドメインを使う
+
+取得した独自ドメインをNetlifyで使えるよう設定してみます。
+
+公開したWebサイトの管理画面から、「Site settings > Domain management > Domains」を選択します。
+ドメイン設定画面が表示され、「Add custom domains」からドメインを追加します。
 
 ![](/images/website/netlify-domain-1.png)
 
+Webサイトに設定したいドメイン名を入力します。
+例えば、`web-study.dev`というドメインを取得している場合は`www.web-study.dev`や`netlify.web-study.dev`といったドメイン名を設定できます。
+
 ![](/images/website/netlify-domain-2.png)
+
+Webサイト用のドメイン名を登録すると、ドメイン設定画面に戻ります。
 
 ![](/images/website/netlify-domain-3.png)
 
+ここで、ドメイン自体を管理しているのは購入したGoogle Domainsです。
+なので、Google Domainsの管理画面から、Netlifyでドメインを使えるよう設定する必要があります。
+
+Netlifyのドメイン設定画面に表示されている「Check DNS configuration」を開くと、Google Domainsで設定すべき情報が表示されます。
+`netlify CNAME nifty-lalande-9f2f4b.netlify.app.`のように表示されている部分がGoogle Domainsで設定すべき情報です。
+忘れないようこの情報をメモしておきましょう。
+
 ![](/images/website/netlify-domain-4.png)
 
+今度は、Google Domainsの管理画面を開きます。
+
+取得したドメインの管理画面から、「DNS」を選択します。
+DNS管理画面の「リソースレコード > カスタムレコード」から、先程Netlifyで表示されていた情報を登録します。
+
+例えば、`netlify CNAME nifty-lalande-9f2f4b.netlify.app.`と表示されていた場合は、次のように情報を入力します。
+
+- ホスト名：`netlify`
+- タイプ：`CNAME`
+- データ：`nifty-lalande-9f2f4b.netlify.app.`
+
+「保存」を選択し、Google Domainsでの設定は完了です。
+
 ![](/images/website/netlify-domain-5.png)
+
+Google Domainsで設定した後、Netlifyでドメインが使えるようになるまで最大で24時間程度かかります。
+しばらく待って、"Check DNS configuration"の表示が消えていればOKです。
+
+![](/images/website/netlify-domain-6.png)
+
+これで、自分のドメインで自分のWebサイトを公開できました。
+
+## Webサイト入門を終えて
+
+お疲れさまでした、以上で「Webサイト入門」は終了です。
+
+ここまで学んだ内容は、Webサイトを作っていくために必要となる基礎知識です。
+この知識を元にして、作りたいWebサイトが作れるようスキルアップしていってもらえると嬉しいです。
+
+Webサイトを作る上でHTML・CSSは重要な要素です、これらに関するスキルアップが出来るよう学んでいくと良いでしょう。
+また、JavaScriptを使ってHTML・CSSを操作する知識を深めることで、表現できるデザインの幅が広がります。
+
+例えば、以下のような順番で学んでいくことができるので、参考にしてみてください。
+
+1. 様々なデザインのWebサイトを作ってみる
+1. Gitを使いソースコードを効率的に管理する
+1. Sassを使いCSSを効率的に記述する
+1. その他
+
+それでは、引き続き作りたいWebサイトを作っていきましょう！

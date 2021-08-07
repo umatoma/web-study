@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '作って学ぶ、Webサイト・Webアプリ開発',
+    title: '作って学ぶ、Webサイト＆Webアプリ入門',
     htmlAttrs: {
       lang: 'ja'
     },

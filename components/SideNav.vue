@@ -3,7 +3,9 @@
     <div class="sm:fixed sm:w-64 sm:h-screen sm:border-r sm:border-gray-200">
       <div class="flex justify-between">
         <a href="/" class="w-full h-10 block px-4 hover:bg-gray-200 flex items-center">
-          <span class="text-sm">HOME</span>
+          <span class="text-sm">
+            Top
+          </span>
         </a>
         <div class="w-10 h-10 flex items-center justify-center sm:hidden" @click="toggleMenuOpen">
           <img src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png">
@@ -34,8 +36,8 @@
 
 <script lang="ts">
 import { IContentDocument } from '@nuxt/content/types/content'
-import { ref, useContext, useFetch } from '@nuxtjs/composition-api'
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, ref, useContext, useFetch, useStore } from '@nuxtjs/composition-api'
+import { State } from '~/store'
 
 interface ContentCategory {
   title: string,
@@ -44,6 +46,7 @@ interface ContentCategory {
 
 export default defineComponent({
   setup () {
+    const store = useStore<State>()
     const context = useContext()
     const $content = context.$content
     const fetchDocs = async (slug: string) => {
@@ -53,12 +56,14 @@ export default defineComponent({
     const isMenuOpen = ref<boolean>(false)
     const categories = ref<ContentCategory[]>([])
     useFetch(async () => {
-      categories.value = [
-        {
-          title: 'Webサイト入門',
-          docs: await fetchDocs('website')
-        }
-      ]
+      categories.value = await Promise.all(
+        store.state.categories.map(async (category) => {
+          return {
+            title: category.title,
+            docs: await fetchDocs(category.directory)
+          }
+        })
+      )
     })
     return {
       isMenuOpen,

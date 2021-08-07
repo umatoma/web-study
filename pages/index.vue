@@ -1,11 +1,24 @@
 <template>
-  <div class="p-4">
-    <h1>作って学ぶ、Webサイト・Webアプリ開発</h1>
-  </div>
+  <main-container :title="title">
+    <template #main>
+      HELLO
+    </template>
+    <template #nav>
+      HELLO
+    </template>
+  </main-container>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, useStore } from '@nuxtjs/composition-api'
+import { State } from '~/store'
 
-export default Vue.extend({})
+export default defineComponent({
+  setup () {
+    const store = useStore<State>()
+    return {
+      title: store.state.title
+    }
+  }
+})
 </script>

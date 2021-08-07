@@ -1,60 +1,51 @@
 <template>
-  <div>
-    <div class="flex flex-col sm:flex-row">
-      <div class="hidden sm:block sm:flex-none sm:w-64 sm:order-last">
-        <div class="sm:fixed sm:w-64 sm:h-screen sm:border-l sm:border-gray-200">
-          <div class="p-4">
-            <h5>目次</h5>
-          </div>
-          <div v-for="content of contents" :key="content.id">
-            <a :href="`#${content.id}`" class="block py-2 px-4 hover:bg-gray-200">
-              <span class="text-sm">{{ content.text }}</span>
-            </a>
-          </div>
+  <main-container :title="doc.title">
+    <template #main>
+      <nuxt-content :document="doc" />
+      <div v-if="prev || next" class="flex flex-col sm:flex-row justify-between pt-8">
+        <div class="mb-4 sm:w-1/3 sm:mb-0">
+          <a v-if="prev" :href="prev.path" class="block w-full border border-gray-200 hover:bg-gray-200">
+            <div class="flex flex-row items-center">
+              <div class="flex-none p-2">
+                <img class="w-8 h-8" src="https://img.icons8.com/ios/50/000000/left--v1.png">
+              </div>
+              <p class="flex-grow p-2 text-center">{{ prev.title }}</p>
+            </div>
+          </a>
+        </div>
+        <div class="sm:w-1/3">
+          <a v-if="next" :href="next.path" class="block w-full border border-gray-200 hover:bg-gray-200">
+            <div class="flex flex-row items-center">
+              <p class="flex-grow p-2 text-center">{{ next.title }}</p>
+              <div class="flex-none p-2">
+                <img class="w-8 h-8" src="https://img.icons8.com/ios/50/000000/right--v1.png">
+              </div>
+            </div>
+          </a>
         </div>
       </div>
-      <article class="flex-grow">
-        <div class="px-8 py-16 bg-green-500">
-          <h1 class="text-3xl text-white font-bold">
-            {{ doc.title }}
-          </h1>
-        </div>
-        <div class="px-4">
-          <nuxt-content :document="doc" />
-        </div>
-        <div v-if="prev || next" class="flex flex-col sm:flex-row justify-between p-4">
-          <div class="mb-4 sm:w-1/3 sm:mb-0">
-            <a v-if="prev" :href="prev.path" class="block w-full border border-gray-200 hover:bg-gray-200">
-              <div class="flex flex-row items-center">
-                <div class="flex-none p-2">
-                  <img class="w-8 h-8" src="https://img.icons8.com/ios/50/000000/left--v1.png">
-                </div>
-                <p class="flex-grow p-2 text-center">{{ prev.title }}</p>
-              </div>
-            </a>
-          </div>
-          <div class="sm:w-1/3">
-            <a v-if="next" :href="next.path" class="block w-full border border-gray-200 hover:bg-gray-200">
-              <div class="flex flex-row items-center">
-                <p class="flex-grow p-2 text-center">{{ next.title }}</p>
-                <div class="flex-none p-2">
-                  <img class="w-8 h-8" src="https://img.icons8.com/ios/50/000000/right--v1.png">
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
+    </template>
+    <template #nav>
+      <div class="p-4">
+        <h5>目次</h5>
+      </div>
+      <div v-for="content of contents" :key="content.id">
+        <a :href="`#${content.id}`" class="block py-2 px-4 hover:bg-gray-200">
+          <span class="text-sm">{{ content.text }}</span>
+        </a>
+      </div>
+    </template>
+  </main-container>
 </template>
 
 <script lang="ts">
 import { IContentDocument } from '@nuxt/content/types/content'
-import { defineComponent, ref, useContext, useFetch, useMeta, useRoute } from '@nuxtjs/composition-api'
+import { defineComponent, ref, useContext, useFetch, useMeta, useRoute, useStore } from '@nuxtjs/composition-api'
+import { State } from '~/store'
 
 export default defineComponent({
   setup () {
+    const store = useStore<State>()
     const context = useContext()
     const route = useRoute()
 
@@ -70,7 +61,9 @@ export default defineComponent({
     const doc = ref<IContentDocument>({} as IContentDocument)
     const prev = ref<IContentDocument | undefined>()
     const next = ref<IContentDocument | undefined>()
-    useMeta(() => ({ title: doc.value?.title }))
+    useMeta(() => ({
+      title: `${doc.value?.title} | ${store.state.title}`
+    }))
     useFetch(async () => {
       const _doc = await fetchDoc()
       const [_prev, _next] = await fetchSurround(_doc.slug)
@@ -82,7 +75,9 @@ export default defineComponent({
 
     return { doc, next, prev }
   },
-  head: {},
+  head () {
+    return {}
+  },
   computed: {
     contents () {
       const toc = (this.doc.toc ?? []) as { depth: number }[]
@@ -98,8 +93,8 @@ export default defineComponent({
     margin-bottom: 1rem;
     padding-left: 0.5rem;
 
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
 
     font-weight: 700;
 
@@ -124,7 +119,13 @@ export default defineComponent({
 
     padding-bottom: 1rem;
   }
-  .nuxt-content ul > li > ul {
+  .nuxt-content ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+
+    padding-bottom: 1rem;
+  }
+  .nuxt-content ul > li > ul, .nuxt-content ol > li > ol {
     padding-left: 1rem;
     padding-bottom: 0.5rem;
   }
