@@ -572,7 +572,7 @@ input {
 </html>
 ```
 
-「[Webサイトとは](/website/web)」で紹介した方法と同じく、Netlifyの管理画面から`public`フォルダをアップロードします。
+<aa href="/website/web-about">「Webサイトとは」</aa>で紹介した方法と同じく、Netlifyの管理画面から`public`フォルダをアップロードします。
 
 ![](/images/website/create-index.png)
 

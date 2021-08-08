@@ -366,7 +366,7 @@ button.remove();
 
 Netlifyを使い、Webサイトとして公開してみます。
 
-「[Webサイトとは](/website/web)」で紹介した方法と同じく、publicフォルダ内に、index.htmlを作成します。 
+<aa href="/website/web-about">「Webサイトとは」</aa>で紹介した方法と同じく、publicフォルダ内に、index.htmlを作成します。 
 そして、Netlifyの管理画面からフォルダをアップロードします。
 
 ```
