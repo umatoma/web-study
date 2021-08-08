@@ -57,7 +57,11 @@ export default {
 
   generate: {
     // https://composition-api.nuxtjs.org/getting-started/setup
-    interval: 2000
+    interval: 500,
+
+    async routes () {
+      return (await getRoutes()).map(route => route.url)
+    }
   },
 
   content: {
@@ -69,17 +73,32 @@ export default {
     }
   },
 
-  sitemap () {
+  async sitemap () {
     return {
       hostname: 'https://web-study.dev',
       defaults: {
-        changefreq: 'weekly',
+        changefreq: 'monthly',
         lastmod: new Date()
-      }
+      },
+      routes: await getRoutes()
     }
   },
 
   'google-gtag': {
     id: 'G-0326YZ6FE5'
   }
+}
+
+async function getRoutes () {
+  const { $content } = require('@nuxt/content')
+  return [
+    { url: '/' },
+    { url: '/about' },
+    ...(await await $content('website').without(['body']).fetch()).map((article) => {
+      return {
+        url: article.path,
+        changefreq: 'weekly'
+      }
+    })
+  ]
 }
