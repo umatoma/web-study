@@ -17,7 +17,7 @@ export default {
       { hid: 'og:site_name', property: 'og:site_name', content: '作って学ぶ、Webサイト＆Webアプリ入門' },
       { hid: 'og:description', property: 'og:description', content: '手を動かしながら、WebサイトやWebアプリの作り方を学ぼう！' },
       { hid: 'og:title', property: 'og:title', content: '作って学ぶ、Webサイト＆Webアプリ入門' },
-      { hid: 'og:image', property: 'og:image', content: 'https://www.web-study/images/banner.png' }
+      { hid: 'og:image', property: 'og:image', content: 'https://web-study/images/banner.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -71,7 +71,7 @@ export default {
 
   sitemap () {
     return {
-      hostname: 'https://www.web-study.dev',
+      hostname: 'https://web-study.dev',
       defaults: {
         changefreq: 'weekly',
         lastmod: new Date()
