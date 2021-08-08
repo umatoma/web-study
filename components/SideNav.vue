@@ -3,12 +3,11 @@
     <div class="sm:fixed sm:w-64 sm:h-screen sm:border-r sm:border-gray-200">
       <div class="flex justify-between">
         <a href="/" class="w-full h-10 block px-4 hover:bg-gray-200 flex items-center">
-          <span class="text-sm">
-            Top
-          </span>
+          <img class="h-6 pr-2" src="/images/logo.png">
+          <span class="text-sm">web-study.dev</span>
         </a>
         <div class="w-10 h-10 flex items-center justify-center sm:hidden" @click="toggleMenuOpen">
-          <img src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png">
+          <img class="h-6" src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png">
         </div>
       </div>
       <div class="sm:block" :class="isMenuOpen ? '' : 'hidden'">

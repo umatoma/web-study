@@ -9,8 +9,8 @@
           </main>
           <footer class="p-4 bg-green-500 text-white sm:mr-64">
             <ul class="flex flex-col items-center p-4">
-              <li>
-                <a href="/about">このサイトについて</a>
+              <li v-for="link in footerLinks" :key="link.url" class="py-1">
+                <a :href="link.url">{{ link.title }}</a>
               </li>
             </ul>
             <p class="text-center text-xs p-4">
@@ -32,7 +32,8 @@ export default defineComponent({
     const store = useStore<State>()
 
     return {
-      title: store.state.title
+      title: store.state.title,
+      footerLinks: store.state.footerLinks
     }
   }
 })

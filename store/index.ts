@@ -3,7 +3,11 @@ export interface State {
     categories: {
         title: string,
         directory: string
-    }[]
+    }[],
+    footerLinks: {
+      title: string,
+      url: string
+  }[]
 }
 
 export interface Mutations {}
@@ -14,6 +18,24 @@ export const state: (() => State) = () => ({
     {
       title: 'Webサイト入門',
       directory: 'website'
+    }
+  ],
+  footerLinks: [
+    {
+      title: 'このサイトについて',
+      url: '/about'
+    },
+    {
+      title: 'Twitter',
+      url: 'https://twitter.com/_umatoma'
+    },
+    {
+      title: 'Zenn',
+      url: 'https://zenn.dev/umatoma/books'
+    },
+    {
+      title: 'flutter-study.dev',
+      url: 'https://www.flutter-study.dev/'
     }
   ]
 })

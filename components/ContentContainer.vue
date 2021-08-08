@@ -79,7 +79,14 @@ export default defineComponent({
     useMeta(() => ({
       title: isTopIndex
         ? doc.value?.title
-        : `${doc.value?.title} | ${store.state.title}`
+        : `${doc.value?.title} | ${store.state.title}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: doc.value?.description
+        }
+      ]
     }))
     useFetch(async () => {
       const _doc = await fetchDoc()
