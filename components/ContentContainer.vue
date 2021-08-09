@@ -41,66 +41,26 @@
 </template>
 
 <script lang="ts">
-import { IContentDocument } from '@nuxt/content/types/content'
-import { defineComponent, ref, useContext, useFetch, useMeta, useStore } from '@nuxtjs/composition-api'
-import { State } from '~/store'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
-    category: {
-      type: String,
+    doc: {
+      type: Object,
       required: true
     },
-    page: {
-      type: String,
-      required: true
+    prev: {
+      type: Object,
+      default: null
+    },
+    next: {
+      type: Object,
+      default: null
     },
     showSurround: {
       type: Boolean,
       default: true
     }
-  },
-  setup ({ category, page }) {
-    const store = useStore<State>()
-    const context = useContext()
-
-    const $content = context.$content
-    const fetchDoc = async () => {
-      return (await $content(`${category}/${page}`).fetch()) as IContentDocument
-    }
-    const fetchSurround = async (slug: string) => {
-      return (await $content(category).sortBy('slug').surround(slug).fetch()) as IContentDocument[]
-    }
-
-    const doc = ref<IContentDocument>({} as IContentDocument)
-    const prev = ref<IContentDocument | undefined>()
-    const next = ref<IContentDocument | undefined>()
-    const isTopIndex = (category === 'top' && page === 'index')
-    useMeta(() => ({
-      title: isTopIndex
-        ? doc.value?.title
-        : `${doc.value?.title} | ${store.state.title}`,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: doc.value?.description
-        }
-      ]
-    }))
-    useFetch(async () => {
-      const _doc = await fetchDoc()
-      const [_prev, _next] = await fetchSurround(_doc.slug)
-
-      doc.value = _doc
-      prev.value = _prev
-      next.value = _next
-    })
-
-    return { doc, next, prev }
-  },
-  head () {
-    return {}
   },
   computed: {
     contents () {

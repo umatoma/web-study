@@ -18,6 +18,10 @@ export const state: (() => State) = () => ({
     {
       title: 'Webサイト入門',
       directory: 'website'
+    },
+    {
+      title: 'Webサイト実践',
+      directory: 'website-practice'
     }
   ],
   footerLinks: [

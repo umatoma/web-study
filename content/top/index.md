@@ -32,7 +32,7 @@ slug: top-01
 Webサイト＆Webアプリ開発を始めてみましょう！
 
 <p class="link-button">
-    <aa href="/website/web-about">はじめる</aa>
+    <a href="/website/web-about">はじめる</a>
 </p>
 
 

@@ -403,7 +403,7 @@ WebサイトのHTMLが完成しました。
 
 Netlifyを使い、Webサイトとして公開してみます。
 
-<aa href="/website/web-about">「Webサイトとは」</aa>で紹介した方法と同じく、`public`フォルダ内に、`index.html`を作成します。
+[「Webサイトとは」](/website/web-about)で紹介した方法と同じく、`public`フォルダ内に、`index.html`を作成します。
 そして、Netlifyの管理画面からフォルダをアップロードします。
 
 ![](/images/website/html-create-website.png)

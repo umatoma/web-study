@@ -9,7 +9,7 @@ slug: website-09
 ここまで学んだ知識を使って自身の動きのあるWebサイトを作ってみましょう。
 
 まず、JavaScriptを使ってないHTMLファイルを作成します。
-<aa href="/website/web-create">「Webサイトを作る」</aa>で作成したものを少し変更した内容とします。
+[「Webサイトを作る」](/website/web-create)で作成したものを少し変更した内容とします。
 
 ```html
 <!DOCTYPE html>
@@ -309,7 +309,7 @@ inputSubmit.addEventListener('click', function() {
 
 Netlifyを使い、Webサイトとして公開してみます。
 
-<aa href="/website/web-about">「Webサイトとは」</aa>で紹介した方法と同じく、publicフォルダ内に、index.htmlを作成します。 
+[「Webサイトとは」](/website/web-about)で紹介した方法と同じく、publicフォルダ内に、index.htmlを作成します。 
 そして、Netlifyの管理画面からフォルダをアップロードします。
 
 ```

@@ -17,7 +17,7 @@ export default {
       { hid: 'og:site_name', property: 'og:site_name', content: '作って学ぶ、Webサイト＆Webアプリ開発' },
       { hid: 'og:description', property: 'og:description', content: '手を動かしながら、WebサイトやWebアプリの作り方を学ぼう！' },
       { hid: 'og:title', property: 'og:title', content: '作って学ぶ、Webサイト＆Webアプリ開発' },
-      { hid: 'og:image', property: 'og:image', content: 'https://web-study/images/banner.png' }
+      { hid: 'og:image', property: 'og:image', content: 'https://web-study.dev/images/banner.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -55,9 +55,13 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
+  router: {
+    prefetchLinks: false
+  },
+
   generate: {
     // https://composition-api.nuxtjs.org/getting-started/setup
-    interval: 100,
+    interval: 50,
 
     async routes () {
       return (await getRoutes()).map(route => route.url)
@@ -91,10 +95,14 @@ export default {
 
 async function getRoutes () {
   const { $content } = require('@nuxt/content')
+  const articles = await $content('/', { deep: true })
+    .where({ dir: { $ne: '/top' } })
+    .without(['body'])
+    .fetch()
   return [
     { url: '/' },
     { url: '/about' },
-    ...(await await $content('website').without(['body']).fetch()).map((article) => {
+    ...articles.map((article) => {
       return {
         url: article.path,
         changefreq: 'weekly'

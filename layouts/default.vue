@@ -13,9 +13,12 @@
                 <a :href="link.url">{{ link.title }}</a>
               </li>
             </ul>
-            <p class="text-center text-xs p-4">
-              Copyright {{ title }}
-            </p>
+            <div class="text-center text-xs p-4">
+              <p>Copyright {{ title }}</p>
+              <p>
+                <a href="https://icons8.com">Icons by Icons8</a>
+              </p>
+            </div>
           </footer>
         </div>
       </div>

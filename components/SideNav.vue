@@ -31,16 +31,6 @@
         <div>
           <div class="p-2">
             <h5 class="font-bold">
-              Webサイト実践
-            </h5>
-          </div>
-          <p class="block py-2 px-4 text-sm">
-            作成中
-          </p>
-        </div>
-        <div>
-          <div class="p-2">
-            <h5 class="font-bold">
               Webアプリ入門
             </h5>
           </div>
