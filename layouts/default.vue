@@ -7,13 +7,29 @@
           <main>
             <Nuxt />
           </main>
-          <footer class="p-4 bg-green-500 text-white sm:mr-64">
-            <ul class="flex flex-col items-center p-4">
-              <li v-for="link in footerLinks" :key="link.url" class="py-1">
-                <a :href="link.url">{{ link.title }}</a>
-              </li>
-            </ul>
-            <div class="text-center text-xs p-4">
+          <footer class="p-8 bg-green-500 text-white sm:mr-64">
+            <div class="flex flex-row gap-4 justify-center">
+              <a href="/about">
+                About
+              </a>
+              <a href="https://twitter.com/_umatoma">
+                Twitter
+              </a>
+              <a href="https://zenn.dev/umatoma/books">
+                Zenn
+              </a>
+            </div>
+            <div class="text-center pt-8">
+              <h5 class="font-bold">
+                関連サイト
+              </h5>
+              <div class="pt-2 text-center">
+                <a href="https://www.flutter-study.dev">
+                  <img src="/images/banner-flutter.png" class="inline rounded-md">
+                </a>
+              </div>
+            </div>
+            <div class="text-center text-xs pt-8">
               <p>Copyright {{ title }}</p>
               <p>
                 <a href="https://icons8.com">Icons by Icons8</a>
@@ -35,8 +51,7 @@ export default defineComponent({
     const store = useStore<State>()
 
     return {
-      title: store.state.title,
-      footerLinks: store.state.footerLinks
+      title: store.state.title
     }
   }
 })

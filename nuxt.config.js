@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '作って学ぶ、Webサイト＆Webアプリ開発',
+    title: '作って学ぶWebサイト制作',
     htmlAttrs: {
       lang: 'ja'
     },
@@ -14,9 +14,9 @@ export default {
       { hid: 'description', name: 'description', content: '手を動かしながら、WebサイトやWebアプリの作り方を学ぼう！' },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
       { hid: 'og:type', property: 'og:type', content: 'article' },
-      { hid: 'og:site_name', property: 'og:site_name', content: '作って学ぶ、Webサイト＆Webアプリ開発' },
+      { hid: 'og:site_name', property: 'og:site_name', content: '作って学ぶWebサイト制作' },
       { hid: 'og:description', property: 'og:description', content: '手を動かしながら、WebサイトやWebアプリの作り方を学ぼう！' },
-      { hid: 'og:title', property: 'og:title', content: '作って学ぶ、Webサイト＆Webアプリ開発' },
+      { hid: 'og:title', property: 'og:title', content: '作って学ぶWebサイト制作' },
       { hid: 'og:image', property: 'og:image', content: 'https://web-study.dev/images/banner.png' }
     ],
     link: [
