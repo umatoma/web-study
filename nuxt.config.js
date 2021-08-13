@@ -17,7 +17,7 @@ export default {
       { hid: 'og:site_name', property: 'og:site_name', content: '作って学ぶWebサイト制作' },
       { hid: 'og:description', property: 'og:description', content: '手を動かしながら、WebサイトやWebアプリの作り方を学ぼう！' },
       { hid: 'og:title', property: 'og:title', content: '作って学ぶWebサイト制作' },
-      { hid: 'og:image', property: 'og:image', content: 'https://web-study.dev/images/banner.png' }
+      { hid: 'og:image', property: 'og:image', content: 'https://web-study.dev/images/card-web.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
