@@ -1,7 +1,7 @@
 ---
 title: メール一覧ページを作る
 description: HTML・CSS・JavaScriptを使ってメール一覧ページを作ってみよう！
-slug: website-practice-02
+slug: practice-02
 ---
 
 ## メール一覧ページを作る
@@ -24,7 +24,7 @@ Webサイトを作る上で、HTML・CSSの仕様をすべて暗記する必要�
 
 | PC | モバイル |
 | --- | --- |
-| ![](/images/website-practice/email-screen.png) | ![](/images/website-practice/email-screen-mobile.png) |
+| ![](/images/practice/email-screen.png) | ![](/images/practice/email-screen-mobile.png) |
 
 ### Icons8
 
@@ -44,14 +44,14 @@ Icons8はアイコンなどの画像素材を配信しているサービスで�
 サイドナビ・メインコンテンツと大きく２つに分けられます。
 サイドナビは横幅を`256px`に固定し、右側のメインコンテンツは`flex-grow: 1;`として余った領域いっぱいに広げます。
 
-![](/images/website-practice/email-layout.png)
+![](/images/practice/email-layout.png)
 
 この時、縦幅に`100vh`を設定します。
 `vh`という単位を使うことで、画面サイズに応じた値を設定できます。
 例えば、`100vh`であれば画面の縦幅と同じ値になり、`50vh`であれば縦幅の半分と同じ値になります。
 また、`vh`ではなく`vw`とすると画面の横幅に応じた値となります。
 
-![](/images/website-practice/email-vw-vh.png)
+![](/images/practice/email-vw-vh.png)
 
 HTML・CSSは次のようになります。
 
@@ -112,7 +112,7 @@ HTML・CSSは次のようになります。
 
 次に、サイドナビの部分を作ります。
 
-![](/images/website-practice/email-sidenav.png)
+![](/images/practice/email-sidenav.png)
 
 タイトルと各種リンクを上下に並べて配置します。
 
@@ -120,7 +120,7 @@ HTML・CSSは次のようになります。
 要素の上にマウスカーソルが重なった時はCSSのセレクターに`:hover`を記述します。
 例えば、`a`タグに設定する場合は`a:hover`となります。
 
-![](/images/website-practice/email-hover.png)
+![](/images/practice/email-hover.png)
 
 HTML・CSSは次のようになります。
 
@@ -183,12 +183,12 @@ nav a:hover {
 
 次に、ヘッダーの部分を作ります。
 
-![](/images/website-practice/email-header.png)
+![](/images/practice/email-header.png)
 
 検索フォームとプロフィールアイコンをFlexboxを使い左右に並べて配置します。
 この時、検索フォームは左寄せに、プロフィールアイコンは右寄せになるよう、`justify-content: space-between`とします。
 
-![](/images/website-practice/email-header-flex.png)
+![](/images/practice/email-header-flex.png)
 
 HTML・CSSは次のようになります。
 
@@ -240,14 +240,14 @@ header .user img {
 
 次に、メール一覧の部分を作ります。
 
-![](/images/website-practice/email-emails.png)
+![](/images/practice/email-emails.png)
 
 Flexboxを使い要素を上下左右に配置します。
 
 ２件のメールを未読、３件のメールを既読として扱います。
 未読の場合はメールの件名を太字に設定します。
 
-![](/images/website-practice/email-emails-flex.png)
+![](/images/practice/email-emails-flex.png)
 
 HTML・CSSは次のようになります。
 
@@ -368,7 +368,7 @@ HTML・CSSは次のようになります。
 既読メールの表示・非表示を切り替えるため、非表示にする時は`display: none;`を設定します。
 具体的には`.hidden { display: none; }`といったCSSを記述し、JavaScriptを使い`hidden`クラスの付け外しを行います。
 
-![](/images/website-practice/email-emails-js.png)
+![](/images/practice/email-emails-js.png)
 
 JavaScript・CSSは次のようになります。
 
@@ -403,7 +403,7 @@ unreadTab.addEventListener('click', function () {
 
 | PC | モバイル |
 | --- | --- |
-| ![](/images/website-practice/email-screen.png) | ![](/images/website-practice/email-screen-mobile.png) |
+| ![](/images/practice/email-screen.png) | ![](/images/practice/email-screen-mobile.png) |
 
 画面サイズに応じてCSSを切り替えるには、`@media`を使います。
 ここでは、`640px`未満であればモバイル用のCSSに切り替えます。
@@ -411,7 +411,7 @@ unreadTab.addEventListener('click', function () {
 モバイル表示では左側にあったナビゲーションを上側に表示し、メールの件名・日付は左右から上下へと表示を切り替えます。
 そのため、`flex-direction: column;`と設定されていた箇所を、`flex-direction: row;`へと切り替えます。
 
-![](/images/website-practice/email-responsive.png)
+![](/images/practice/email-responsive.png)
 
 CSSは次のようになります。
 

@@ -1,6 +1,6 @@
 ---
 title: 作って学ぶWebサイト制作
-description: 手を動かしながら、WebサイトやWebアプリの作り方を学ぼう！
+description: 手を動かしながら、Webサイトの作り方を学ぼう！
 slug: top-01
 ---
 

@@ -28,16 +28,6 @@
             </span>
           </a>
         </div>
-        <div>
-          <div class="p-2">
-            <h5 class="font-bold">
-              Webサイト応用
-            </h5>
-          </div>
-          <p class="block py-2 px-4 text-sm">
-            作成中
-          </p>
-        </div>
       </div>
     </div>
   </aside>
@@ -45,8 +35,7 @@
 
 <script lang="ts">
 import { IContentDocument } from '@nuxt/content/types/content'
-import { defineComponent, ref, useContext, useFetch, useStore } from '@nuxtjs/composition-api'
-import { State } from '~/store'
+import { defineComponent, ref, useContext, useFetch } from '@nuxtjs/composition-api'
 
 interface ContentCategory {
   title: string,
@@ -55,7 +44,6 @@ interface ContentCategory {
 
 export default defineComponent({
   setup () {
-    const store = useStore<State>()
     const context = useContext()
     const $content = context.$content
     const fetchDocs = async (slug: string) => {
@@ -66,7 +54,20 @@ export default defineComponent({
     const categories = ref<ContentCategory[]>([])
     useFetch(async () => {
       categories.value = await Promise.all(
-        store.state.categories.map(async (category) => {
+        [
+          {
+            title: 'Webサイト入門',
+            directory: 'website'
+          },
+          {
+            title: 'Webサイト実践',
+            directory: 'practice'
+          },
+          {
+            title: 'Webサイト応用',
+            directory: 'master'
+          }
+        ].map(async (category) => {
           return {
             title: category.title,
             docs: await fetchDocs(category.directory)

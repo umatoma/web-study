@@ -1,7 +1,7 @@
 ---
 title: サービス紹介ページを作る
 description: HTML・CSS・JavaScriptを使ってサービス紹介ページを作ってみよう！
-slug: website-practice-01
+slug: practice-01
 ---
 
 ## サービス紹介ページを作る
@@ -20,7 +20,7 @@ Webサイトを作る上で、HTML・CSSの仕様をすべて暗記する必要�
 作るのは次のようなデザインのサービス紹介ページです。
 ヘッダー・メインコンテンツ・フッターの3つがあり、タイトル・特徴・価格と多くのサービス紹介ページに含まれている内容です。
 
-![](/images/website-practice/service-screen.png)
+![](/images/practice/service-screen.png)
 
 ### Icons8
 
@@ -40,13 +40,13 @@ Icons8はアイコンなどの画像素材を配信しているサービスで�
 ヘッダー・メインコンテンツ・フッターと大きく３つに分けられます。
 ヘッダー・メインコンテンツ内は横幅を指定できるよう、`container`クラスを設定します。
 
-![](/images/website-practice/service-layout.png)
+![](/images/practice/service-layout.png)
 
 この時、`container`クラスには横幅を指定した上で要素を左右中央に配置されるようCSSを記述します。
 横幅は`max-width`を使い、左右中央に配置するには左右のマージンを`auto`にします。
 こうすることで、左右に等幅のマージンが入り、左右中央に配置させることができます。
 
-![](/images/website-practice/service-container.png)
+![](/images/practice/service-container.png)
 
 HTML・CSSは次のようになります。
 
@@ -96,7 +96,7 @@ HTML・CSSは次のようになります。
 
 次に、ヘッダー部分を作ります。
 
-![](/images/website-practice/service-header.png)
+![](/images/practice/service-header.png)
 
 左側にロゴアイコンを配置し、右側にナビゲーションを配置します。
 このように、要素を左右に配置し要素間のスペースを最大にするにはFlexboxが使えます。
@@ -104,7 +104,7 @@ HTML・CSSは次のようになります。
 要素を左から右に配置するので、`flex-direction: row;`とします。
 また、要素間のスペースを最大にするため、`justify-content: space-between;`とします。
 
-![](/images/website-practice/service-header-flex.png)
+![](/images/practice/service-header-flex.png)
 
 HTML・CSSは次のようになります。
 
@@ -149,7 +149,7 @@ header nav a:hover {
 
 次に、サービスタイトルの部分を作ります。
 
-![](/images/website-practice/service-service.png)
+![](/images/practice/service-service.png)
 
 見出し・文章はサイズ・色などを調整します。
 また、ボタンは、角丸・影の装飾が必要です。
@@ -158,7 +158,7 @@ header nav a:hover {
 `box-shadow`の値は左から順番に、水平方向のオフセット・垂直方向のオフセット・ぼかし具合・色、となっています。
 オフセットは指定された分だけ影の開始位置をずらし、ぼかし具合は数値が大きくなるほどぼやけます。
 
-![](/images/website-practice/service-box-shadow.png)
+![](/images/practice/service-box-shadow.png)
 
 そして、見出しの文字サイズには`font-size: 3rem;`を設定します。
 `rem`とは、`html`のフォントサイズを基準とした単位です。
@@ -167,7 +167,7 @@ header nav a:hover {
 `px`ではなく`rem`を使うことで、`html`のフォントサイズを元にしたサイズ指定ができます。
 つまり、`html`のフォントサイズを変更すると`rem`の値も自動的に変化し全体のサイズ調整がしやすくなります。
 
-![](/images/website-practice/service-rem.png)
+![](/images/practice/service-rem.png)
 
 HTML・CSSは次のようになります。
 
@@ -213,7 +213,7 @@ HTML・CSSは次のようになります。
 
 次に、サービス特徴の部分を作ります。
 
-![](/images/website-practice/service-features.png)
+![](/images/practice/service-features.png)
 
 ３つの特徴を左右に配置します。
 要素を左右に配置するためFlexboxを使い、横幅を均等にするため`flex: 1;`を設定します。
@@ -224,7 +224,7 @@ HTML・CSSは次のようになります。
 
 ここでは、各要素の横幅を均等、つまり１対１対１の比率にするので、３つの要素に`flex: 1;`を設定することとなります。
 
-![](/images/website-practice/service-flex.png)
+![](/images/practice/service-flex.png)
 
 HTML・CSSは次のようになります。
 
@@ -295,7 +295,7 @@ HTML・CSSは次のようになります。
 
 次に、サービス価格の部分を作ります。
 
-![](/images/website-practice/service-prices.png)
+![](/images/practice/service-prices.png)
 
 ３つの価格を左右に配置します。
 サービス特徴と同じくFlexboxを使い左右に並べ、`flex`を設定し横幅を均等にします。
@@ -303,7 +303,7 @@ HTML・CSSは次のようになります。
 左右に並べた各要素内は、上下に要素を並べます。
 また、要素間のスペースを最大にするため、`justify-content: space-between;`とします。
 
-![](/images/website-practice/service-prices-flex.png)
+![](/images/practice/service-prices-flex.png)
 
 HTML・CSSは次のようになります。
 
@@ -448,7 +448,7 @@ HTML・CSSは次のようになります。
 
 最後に、フッターの部分を作ります。
 
-![](/images/website-practice/service-footer.png)
+![](/images/practice/service-footer.png)
 
 Flexboxを使い各リンクを左右に並べ、背景・文字などを装飾します。
 

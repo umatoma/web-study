@@ -27,10 +27,9 @@ interface Computed {}
 interface Props {}
 
 export default Vue.extend<Data, Methods, Computed, Props>({
-  async asyncData ({ $content, store }): Promise<Data> {
-    const { state } = store
+  async asyncData ({ $content }): Promise<Data> {
     const { category, page } = { category: 'top', page: 'index' }
-    const article = await getArticle({ $content, state, category, page })
+    const article = await getArticle({ $content, category, page })
     return { ...article }
   },
   head () {

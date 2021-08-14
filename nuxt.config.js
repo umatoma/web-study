@@ -11,11 +11,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '手を動かしながら、WebサイトやWebアプリの作り方を学ぼう！' },
+      { hid: 'description', name: 'description', content: '手を動かしながら、Webサイトの作り方を学ぼう！' },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
       { hid: 'og:type', property: 'og:type', content: 'article' },
       { hid: 'og:site_name', property: 'og:site_name', content: '作って学ぶWebサイト制作' },
-      { hid: 'og:description', property: 'og:description', content: '手を動かしながら、WebサイトやWebアプリの作り方を学ぼう！' },
+      { hid: 'og:description', property: 'og:description', content: '手を動かしながら、Webサイトの作り方を学ぼう！' },
       { hid: 'og:title', property: 'og:title', content: '作って学ぶWebサイト制作' },
       { hid: 'og:image', property: 'og:image', content: 'https://web-study.dev/images/card-web.png' }
     ],

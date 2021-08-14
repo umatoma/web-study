@@ -30,7 +30,7 @@
               </div>
             </div>
             <div class="text-center text-xs pt-8">
-              <p>Copyright {{ title }}</p>
+              <p>Copyright 作って学ぶWebサイト制作</p>
               <p>
                 <a href="https://icons8.com">Icons by Icons8</a>
               </p>
@@ -41,18 +41,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent, useStore } from '@nuxtjs/composition-api'
-import { State } from '~/store'
-
-export default defineComponent({
-  setup () {
-    const store = useStore<State>()
-
-    return {
-      title: store.state.title
-    }
-  }
-})
-</script>
