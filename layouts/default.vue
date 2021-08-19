@@ -25,7 +25,7 @@
               </h5>
               <div class="pt-2 text-center">
                 <a href="https://www.flutter-study.dev">
-                  <img src="/images/banner-flutter.png" class="inline rounded-md">
+                  <img src="/images/banner-flutter.png" class="inline rounded-md max-h-32">
                 </a>
               </div>
             </div>

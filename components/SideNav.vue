@@ -4,27 +4,29 @@
       <div class="flex justify-between">
         <a href="/" class="w-full h-10 block px-4 hover:bg-gray-200 flex items-center">
           <img class="h-6 pr-2" src="/images/logo.png">
-          <span class="text-sm">web-study.dev</span>
+          <span class="text-sm">flutter-study.dev</span>
         </a>
         <div class="w-10 h-10 flex items-center justify-center sm:hidden" @click="toggleMenuOpen">
           <img class="h-6" src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png">
         </div>
       </div>
       <div class="sm:block" :class="isMenuOpen ? '' : 'hidden'">
-        <div v-for="category in categories" :key="category.title">
-          <div class="p-2">
-            <h5 class="font-bold">
-              {{ category.title }}
-            </h5>
-          </div>
+        <div v-for="(category, cindex) in categories" :key="category.title">
+          <h5
+            class="p-2 cursor-pointer text-green-900 hover:bg-gray-200"
+            @click="toggleCategoryOpen(category)"
+          >
+            {{ (cindex + 1) }}. {{ category.title }}
+          </h5>
           <a
-            v-for="(doc, index) in category.docs"
+            v-for="(doc, dindex) in category.docs"
             :key="doc.path"
             :href="doc.path"
-            class="block py-2 px-4 hover:bg-gray-200"
+            class="block truncate py-2 px-4 hover:bg-gray-200"
+            :class="category.isOpen ? '' : 'hidden'"
           >
-            <span class="text-sm">
-              {{ (index + 1).toString().padStart(2, '0') }}. {{ doc.title }}
+            <span class="text-xs">
+              {{ (cindex + 1) }}-{{ (dindex + 1) }}. {{ doc.title }}
             </span>
           </a>
         </div>
@@ -39,13 +41,13 @@ import { defineComponent, ref, useContext, useFetch } from '@nuxtjs/composition-
 
 interface ContentCategory {
   title: string,
-  docs: IContentDocument[]
+  docs: IContentDocument[],
+  isOpen: boolean
 }
 
 export default defineComponent({
   setup () {
-    const context = useContext()
-    const $content = context.$content
+    const { $content, params } = useContext()
     const fetchDocs = async (slug: string) => {
       return (await $content(slug).without(['body']).sortBy('slug').fetch()) as IContentDocument[]
     }
@@ -70,7 +72,8 @@ export default defineComponent({
         ].map(async (category) => {
           return {
             title: category.title,
-            docs: await fetchDocs(category.directory)
+            docs: await fetchDocs(category.directory),
+            isOpen: category.directory === params.value.category
           }
         })
       )
@@ -83,6 +86,12 @@ export default defineComponent({
   methods: {
     toggleMenuOpen () {
       this.isMenuOpen = !this.isMenuOpen
+    },
+    toggleCategoryOpen (category: ContentCategory) {
+      this.categories = this.categories.map(_category => ({
+        ..._category,
+        isOpen: category === _category ? !_category.isOpen : _category.isOpen
+      }))
     }
   }
 })

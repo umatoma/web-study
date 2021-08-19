@@ -3,8 +3,8 @@
     <template #main>
       <nuxt-content :document="doc" />
       <template v-if="showSurround && (prev || next)">
-        <div class="flex flex-col sm:flex-row justify-between pt-8">
-          <div class="mb-4 sm:w-1/3 sm:mb-0">
+        <div class="flex flex-col sm:flex-row justify-between gap-8 pt-8">
+          <div class="flex-1">
             <a v-if="prev" :href="prev.path" class="block w-full border border-gray-200 hover:bg-gray-200">
               <div class="flex flex-row items-center">
                 <div class="flex-none p-2">
@@ -14,7 +14,7 @@
               </div>
             </a>
           </div>
-          <div class="sm:w-1/3">
+          <div class="flex-1">
             <a v-if="next" :href="next.path" class="block w-full border border-gray-200 hover:bg-gray-200">
               <div class="flex flex-row items-center">
                 <p class="flex-grow p-2 text-center">{{ next.title }}</p>
