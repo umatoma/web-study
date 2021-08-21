@@ -124,6 +124,18 @@ Grid線の番号を元に、Gridアイテムの配置方法を指定できます
 }
 ```
 
+1,2,3のような絶対値だけでなく、２列先まで・３行先までといった相対的な値も指定できます。  
+相対的な値は`span 2`・`span 3`のように指定します。
+
+```css
+.item {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+}
+```
+
 また、Gridアイテムが重なるような配置も指定できます。
 
 ![](/images/master/grid-line-start-end.png)

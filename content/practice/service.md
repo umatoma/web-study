@@ -1,7 +1,7 @@
 ---
 title: サービス紹介ページを作る
 description: HTML・CSS・JavaScriptを使ってサービス紹介ページを作ってみよう！
-slug: practice-01
+slug: practice-02
 ---
 
 ## サービス紹介ページを作る
