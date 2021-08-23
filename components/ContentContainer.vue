@@ -28,25 +28,23 @@
       </template>
     </template>
     <template #nav>
-      <div class="flex flex-col justify-between h-screen">
-        <div>
-          <h5 class="font-bold p-4">
-            目次
-          </h5>
-          <div v-for="content of contents" :key="content.id">
-            <a :href="`#${content.id}`" class="block py-2 px-4 hover:bg-gray-200">
-              <span class="text-sm">{{ content.text }}</span>
-            </a>
-          </div>
-        </div>
-        <div>
-          <h5 class="font-bold p-4">
-            関連サイト
-          </h5>
-          <a href="https://www.flutter-study.dev" class="block px-4 pb-4">
-            <img class="w-full" src="/images/banner-flutter.png">
+      <div>
+        <h5 class="font-bold p-4">
+          目次
+        </h5>
+        <div v-for="content of contents" :key="content.id">
+          <a :href="`#${content.id}`" class="block py-2 px-4 hover:bg-gray-200">
+            <span class="text-xs">{{ content.text }}</span>
           </a>
         </div>
+      </div>
+      <div>
+        <h5 class="font-bold p-4">
+          関連サイト
+        </h5>
+        <a href="https://www.flutter-study.dev" class="block px-4 pb-4">
+          <img class="max-h-24" src="/images/banner-flutter.png">
+        </a>
       </div>
     </template>
   </main-container>
