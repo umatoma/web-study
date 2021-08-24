@@ -3,7 +3,7 @@
     <div class="flex justify-between">
       <a href="/" class="w-full h-10 block px-4 hover:bg-gray-200 flex items-center">
         <img class="h-6 w-6 mr-2" src="/images/logo.png">
-        <span class="text-sm">flutter-study.dev</span>
+        <span class="text-sm">web-study.dev</span>
       </a>
       <div class="w-10 h-10 flex items-center justify-center sm:hidden" @click="toggleMenuOpen">
         <img class="h-6" src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png">

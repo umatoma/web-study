@@ -1,15 +1,15 @@
 ---
-title: 図で理解する CSS Grid
-description: 図で CSS Grid の全体像を理解しよう！
+title: 図で理解する Grid Layout
+description: 図で Grid Layout の全体像を理解しよう！
 slug: master-02
 ---
 
-## 図で理解するGrid
+## 図で理解する Grid Layout
 
-Gridは複雑なレイアウトを組み立てるために必要となる機能です。  
+Grid Layoutは複雑なレイアウトを組み立てるために必要となる機能です。  
 ですが、文章だけではGridの仕組みや使い方を理解しづらい部分があるのも事実です。
 
-そこで、Gridの仕組みや使い方を図で視覚的に説明します。  
+そこで、Grid Layoutの仕組みや使い方を図で視覚的に説明します。  
 Gridを使いこなして、様々なレイアウトを組み立てられるようになりましょう。
 
 

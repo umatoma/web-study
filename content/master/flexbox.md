@@ -1,6 +1,6 @@
 ---
-title: 図で理解する CSS Flexbox
-description: 図で CSS Flexbox の全体像を理解しよう！
+title: 図で理解する Flexbox
+description: 図で Flexbox の全体像を理解しよう！
 slug: master-01
 ---
 
